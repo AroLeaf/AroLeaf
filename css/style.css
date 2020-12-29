@@ -1,0 +1,373 @@
+body {
+  --text-light: #fff;
+  --text-main: #d8d8d8;
+  --text-darker: #ccc;
+  --text-dark: #888;
+  --bg-light: #333;
+  --bg-main: #222;
+  --bg-dark: #121212;
+
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+.nav-open {
+  display: none;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+  margin: 0px;
+}
+
+
+
+/* 
+  _  _          
+ | \| |__ ___ __
+ | .` / _` \ V /
+ |_|\_\__,_|\_/ 
+                
+*/
+
+nav {
+  width: 256px;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--bg-dark);
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+  box-shadow: 0px 0px 5px 2px #000;
+  transition: .25s;
+  overflow: auto;
+}
+
+.nav-logo {
+  width: 100%;
+  padding: 8px;
+  display: block;
+  box-sizing: border-box;
+  background-color: var(--bg-main);
+}
+.nav-logo img {
+  display: block;
+  margin: 0px auto;
+  border-radius: 6px;
+}
+
+.nav-title {
+  display: block;
+  font-size: 24px;
+  padding: 4px;
+}
+
+.nav-link {
+  font-size: 20px;
+  display: block;
+  padding: 4px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.nav-link:hover,
+.nav-link.active {
+  background-color: var(--bg-main);
+}
+.nav-link.active {
+  cursor: default;
+}
+
+.nav-spacer {
+  height: 3px;
+  border: none;
+  background-color: #444;
+  margin-top: 8px;
+}
+
+
+
+/* 
+  __  __      _      
+ |  \/  |__ _(_)_ _  
+ | |\/| / _` | | ' \ 
+ |_|  |_\__,_|_|_||_|
+                     
+*/
+
+main {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 256px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+}
+
+
+
+.page {
+  position: absolute;
+  top: 0px;
+  left: 256px;
+  right: 0px;
+  z-index: -1;
+  opacity: 0;
+  transition: .2s;
+}
+
+.page.active {
+  z-index: 1;
+  opacity: 1;
+  transition: .2s;
+}
+
+
+
+/* 
+_  _               
+| || |___ _ __  ___ 
+| __ / _ \ '  \/ -_)
+|_||_\___/_|_|_\___|
+
+*/
+
+#page-home {
+  padding: 0px 32px;
+}
+
+.page-home-title {
+  font-size: 64px;
+  color: var(--text-dark);
+  margin: 32px 0px 64px;
+  text-align: center;
+}
+
+.page-home-about {
+  max-width: 75%;
+  margin: 32px auto;
+  padding: 16px 32px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 4px #000;
+}
+
+.page-home-about-title {
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.page-home-about-text {
+  font-size: 20px;
+}
+.page-home-about-text br {
+  content: "";
+  margin-top: .5em;
+  display: block;
+}
+
+
+
+/* 
+  ___          _        _      
+ | _ \_ _ ___ (_)___ __| |_ ___
+ |  _/ '_/ _ \| / -_) _|  _(_-<
+ |_| |_| \___// \___\__|\__/__/
+            |__/               
+*/
+
+.page-projects-title {
+  font-size: 64px;
+  color: var(--text-dark);
+  margin: 32px 0px;
+  text-align: center;
+}
+
+.page-projects-grid {
+  max-width: 832px;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  grid-gap: 96px;
+  padding: 32px;
+  margin: 0px auto;
+}
+
+.page-projects-card {
+  width: calc(100% - 8px);
+  margin: 4px;
+  padding: 16px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 2px 4px #000;
+  display: grid;
+  grid-template: 64px 1fr 64px / 1fr 64px;
+  grid-gap: 8px;
+  transition: .25s;
+  border-radius: 3px;
+}
+.page-projects-card:hover {
+  width: 100%;
+  margin: 0px;
+  box-shadow: 0px 0px 8px 4px #000;
+  transition: .25s;
+}
+
+.page-projects-card-title {
+  font-size: 32px;
+  color: var(--text-light);
+}
+
+.page-projects-card-image {
+  border-radius: 8px;
+}
+
+.page-projects-card-text {
+  grid-area: 2 / 1 / 3 / 3;
+  transition: .25s;
+  font-size: 20px;
+  overflow-y: auto;
+}
+.page-projects-card:hover .page-projects-card-text {
+  padding-right: 8px;
+  padding-bottom: 8px;
+  transition: .25s
+}
+
+.page-projects-card-button {
+  width: 128px;
+  height: 42px;
+  margin: 0px auto;
+  padding-top: 8px;
+  box-sizing: border-box;
+  color: var(--text-main);
+  text-decoration: none;
+  border: 2px solid var(--text-light);
+  text-align: center;
+  grid-area: 3 / 1 / 4 / 3;
+  background-image: linear-gradient(90deg, var(--bg-main) 25%, #444, var(--bg-main) 75%);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  background-position: 200% 50%;
+  border-radius: 3px;
+}
+.page-projects-card-button:hover {
+  background-position: -100% 50%;
+  transition: .5s ease;
+}
+
+
+
+@media only screen and (max-width: 1260px) {
+  .page-projects-grid {
+    grid-template: 1fr / 1fr;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .page-projects-grid,
+  .page-projects-title {
+    max-width: 448px;
+  }
+}
+
+
+
+.bg-rainbow {
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+
+.bg-rainbow-text {
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.bg-rainbow-text-wrapper {
+  background-color: inherit;
+  color: transparent;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+  .nav-open {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 32px;
+    color: #fff;
+    transition: .25s;
+    z-index: 10;
+    text-shadow: 2px 2px 4px #000;
+  }
+  .nav-open.active {
+    transition: .25s;
+    left: 272px;
+  }
+
+  nav {
+    left: -256px;
+    transition: .25s;
+  }
+  nav.active {
+    transition: .25s;
+    left: 0px;
+  }
+  .nav-link {
+    font-size: 32px;
+  }
+  .nav-title {
+    font-size: 48px;
+  }
+  .nav-spacer {
+    margin-top: 16px;
+  }
+
+  main {
+    margin-top: 48px;
+    padding-left: 0px;
+  }
+
+  .page {
+    left: 0px;
+  }
+
+  .page-home-about,
+  .page-projects-grid,
+  .page-projects-title {
+    max-width: 448px;
+  }
+}

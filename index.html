@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d649462fb3.js" crossorigin="anonymous"></script>
+    <title>AroLeaf</title>
+  </head>
+  <body>
+    <span class="nav-open fas fa-bars" onclick="openNav()" id="navbutton"></span>
+    <nav id="nav">
+      <div class="nav-logo"><img src="assets/signature.png" alt="AroLeaf" width="128" height="64"></div>
+      <b class="nav-title">Pages</b>
+      <a class="nav-link active" onclick="page('page-home')" id="linkto:page-home">Home</a>
+      <a class="nav-link" onclick="page('page-about')" id="linkto:page-about">About</a>
+      <a class="nav-link" onclick="page('page-projects')" id="linkto:page-projects">Projects</a>
+      <hr class="nav-spacer">
+      <b class="nav-title">External</b>
+      <a class="nav-link" href="https://frostbyte.space" target="_blank"><img src="assets/frostbyte.png" alt="Frostbyte" width="24px" height="24px"> Frostbyte</a>
+      <a class="nav-link" href="https://github.com/FrostbyteSpace/easyhiven.js" target="_blank"><img src="assets/hiven.png" alt="Hiven" width="24px" height="27px"> easyhiven.js</a>
+      <hr class="nav-spacer">
+      <b class="nav-title">Socials</b>
+      <a class="nav-link" href="https://github.com/AroLeaf" target="_blank"><span class="fab fa-github fa-lg" style="color:#fff;"></span> AroLeaf</a>
+      <a class="nav-link" href="https://twitter.com/AroAceLeaf" target="_blank"><span class="fab fa-twitter fa-lg" style="color:#fff;background-color:#1DA1F2;font-size:20px;padding:6px 3px;border-radius:4px;"></span> @AroAceLeaf</a>
+      <a class="nav-link" href="https://app.hiven.io/@aroleaf" target="_blank"><img src="assets/hiven.png" alt="Hiven" width="24px" height="27px"> @aroleaf</a>
+    </nav>
+    <main>
+      <div class="page active" id="page-home">
+        <!--  -->
+      </div>
+      
+      <div class="page" id="page-about">
+        <!--  -->
+      </div>
+
+      <div class="page" id="page-projects">
+        <h1 class="page-projects-title">Projects</h1>
+        <div class="page-projects-grid">
+          <div class="page-projects-card">
+            <h1 class="page-projects-card-title">Frostbyte</h1>
+            <img src="assets/frostbyte.png" alt="Frostbyte Logo" height="64px" width="64px" class="page-projects-card-image">
+            <p class="page-projects-card-text"
+              >Frostbyte is a discord bot for furries, made by furries (and me).<br
+              >It has tons of features, like NSFW, hate speech, and caps filters, interaction commands like hug and cuddle, images of cute animals, reddit integration, and much more!
+            </p>
+            <a class="page-projects-card-button" href="https://frostbyte.space">LEARN MORE</a>
+          </div>
+          <div class="page-projects-card">
+            <h1 class="page-projects-card-title">easyhiven.js</h1>
+            <img src="assets/hiven.png" alt="Hiven Logo" height="64px" width="56px" class="page-projects-card-image">
+            <p class="page-projects-card-text"
+              >Anyone can make a Hiven bot!<br><br
+              >easyhiven.js is a nodejs module to communicate with Hiven's api.<br
+              >It's both easy to use and very powerful, so no matter your coding experience, you'll get something out of it!
+            </p>
+            <a class="page-projects-card-button" href="https://github.com/FrostbyteSpace/easyhiven.js">LEARN MORE</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
