@@ -82,10 +82,8 @@ nav {
 }
 
 .nav-spacer {
-  height: 3px;
-  border: none;
-  background-color: #444;
-  margin-top: 8px;
+  height: 24px;
+  background-color: var(--bg-dark);
 }
 
 
@@ -163,7 +161,7 @@ _  _
 .page-home-about-text {
   font-size: 20px;
 }
-.page-home-about-text br {
+.page-home-about-text br.p {
   content: "";
   margin-top: .5em;
   display: block;
@@ -259,6 +257,13 @@ _  _
 
 
 
+@media only screen and (max-width: 1900px) {
+  .page-projects-grid {
+    grid-template: 1fr / 1fr 1fr;
+    max-width: 832px
+  }
+}
+
 @media only screen and (max-width: 1260px) {
   .page-projects-grid {
     grid-template: 1fr / 1fr;
@@ -274,45 +279,55 @@ _  _
 
 
 
-.bg-rainbow {
-  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-  background-size: 1800% 1800%;
-
-  -webkit-animation: rainbow 18s ease infinite;
-  -z-animation: rainbow 18s ease infinite;
-  -o-animation: rainbow 18s ease infinite;
-  animation: rainbow 18s ease infinite;
+:not(span).bg-rainbow {
+  position: relative;
+  overflow: hidden;
 }
-
-@-webkit-keyframes rainbow {
-  0%{background-position:0% 82%}
-  50%{background-position:100% 19%}
-  100%{background-position:0% 82%}
-}
-@-moz-keyframes rainbow {
-  0%{background-position:0% 82%}
-  50%{background-position:100% 19%}
-  100%{background-position:0% 82%}
-}
-@-o-keyframes rainbow {
-  0%{background-position:0% 82%}
-  50%{background-position:100% 19%}
-  100%{background-position:0% 82%}
+:not(span).bg-rainbow::before {
+  content: "";
+  position: absolute;
+  width: 2000%;
+  height: 2000%;
+  top: -450%;
+  left: -950%;
+  z-index: -1;
+  background-image: conic-gradient(
+    hsl(360, 100%, 50%),
+    hsl(315, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(225, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(135, 100%, 50%),
+    hsl(90, 100%, 50%),
+    hsl(45, 100%, 50%),
+    hsl(0, 100%, 50%)
+  );
+  animation: rainbow 10s linear infinite;
 }
 @keyframes rainbow {
-  0%{background-position:0% 82%}
-  50%{background-position:100% 19%}
-  100%{background-position:0% 82%}
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
 }
 
-.bg-rainbow-text {
+.text-bg {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
 }
-.bg-rainbow-text-wrapper {
+.text-bg-wrapper {
   background-color: inherit;
   color: transparent;
+}
+
+span.bg-rainbow {
+  background-image: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+  animation: text-rainbow 18s ease infinite;
+}
+@keyframes text-rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
 }
 
 
@@ -353,7 +368,7 @@ _  _
     font-size: 48px;
   }
   .nav-spacer {
-    margin-top: 16px;
+    height: 32px;
   }
 
   main {

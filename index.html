@@ -7,34 +7,46 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d649462fb3.js" crossorigin="anonymous"></script>
+    <script src="scripts/axios.min.js"></script>
+    <script src="scripts/pronoundb.js"></script>
     <title>AroLeaf</title>
   </head>
   <body>
     <span class="nav-open fas fa-bars" onclick="openNav()" id="navbutton"></span>
     <nav id="nav">
-      <div class="nav-logo"><img src="assets/signature.png" alt="AroLeaf" width="128" height="64"></div>
-      <b class="nav-title">Pages</b>
+      <div class="nav-spacer"></div>
       <a class="nav-link active" onclick="page('page-home')" id="linkto:page-home">Home</a>
-      <a class="nav-link" onclick="page('page-about')" id="linkto:page-about">About</a>
+      <!-- <a class="nav-link" onclick="page('page-')" id="linkto:page-"></a> -->
       <a class="nav-link" onclick="page('page-projects')" id="linkto:page-projects">Projects</a>
-      <hr class="nav-spacer">
-      <b class="nav-title">External</b>
-      <a class="nav-link" href="https://frostbyte.space" target="_blank"><img src="assets/frostbyte.png" alt="Frostbyte" width="24px" height="24px"> Frostbyte</a>
-      <a class="nav-link" href="https://github.com/FrostbyteSpace/easyhiven.js" target="_blank"><img src="assets/hiven.png" alt="Hiven" width="24px" height="27px"> easyhiven.js</a>
-      <hr class="nav-spacer">
-      <b class="nav-title">Socials</b>
-      <a class="nav-link" href="https://github.com/AroLeaf" target="_blank"><span class="fab fa-github fa-lg" style="color:#fff;"></span> AroLeaf</a>
-      <a class="nav-link" href="https://twitter.com/AroAceLeaf" target="_blank"><span class="fab fa-twitter fa-lg" style="color:#fff;background-color:#1DA1F2;font-size:20px;padding:6px 3px;border-radius:4px;"></span> @AroAceLeaf</a>
-      <a class="nav-link" href="https://app.hiven.io/@aroleaf" target="_blank"><img src="assets/hiven.png" alt="Hiven" width="24px" height="27px"> @aroleaf</a>
     </nav>
     <main>
       <div class="page active" id="page-home">
-        <!--  -->
+        <h1 class="page-home-title">AroLeaf</h1>
+        <div class="page-home-about">
+          <h1 class="page-home-about-title">About Me</h1>
+          <!-- something floated right -->
+          <p class="page-home-about-text"
+            >I'm AroLeaf, a 17yo hobby programmer from the Netherlands.<br class="p"
+            >I'm <span
+              class="text-bg-wrapper"><span class="text-bg" style="background-image:linear-gradient(90deg,#3aa63f,#a8d47a,#fff,#aaa,#000);">aromantic</span></span
+            > and <span
+              class="text-bg-wrapper"><span class="text-bg" style="background-image:linear-gradient(90deg,#000,#a4a4a4,#fff,#810081);">asexual</span></span>,<br
+            >and use <span 
+              id="page-home-about-pronouns"></span>. <span style="color:var(--text-dark);font-size:16px;">(provided by <a href="https://pronoundb.org">pronoundb.org</a>)</span>
+            <script>
+              (async () => {
+                const id = await Pronouns.githubIdFromName('AroLeaf');
+                const pronouns = await Pronouns.github(id).get();
+                document.getElementById('page-home-about-pronouns').innerHTML = pronouns.text;
+              })()
+            </script>
+          </p>
+        </div>
       </div>
       
-      <div class="page" id="page-about">
-        <!--  -->
-      </div>
+      <!-- <div class="page" id="page-">
+        
+      </div> -->
 
       <div class="page" id="page-projects">
         <h1 class="page-projects-title">Projects</h1>
@@ -43,20 +55,18 @@
             <h1 class="page-projects-card-title">Frostbyte</h1>
             <img src="assets/frostbyte.png" alt="Frostbyte Logo" height="64px" width="64px" class="page-projects-card-image">
             <p class="page-projects-card-text"
-              >Frostbyte is a discord bot for furries, made by furries (and me).<br
-              >It has tons of features, like NSFW, hate speech, and caps filters, interaction commands like hug and cuddle, images of cute animals, reddit integration, and much more!
+              >Frostbyte is a discord bot for furries, made by three furries and me,<br
+              >It has tons of features, like interaction commands like hug and cuddle, images of cute animals, reddit integration, and much more!
             </p>
-            <a class="page-projects-card-button" href="https://frostbyte.space">LEARN MORE</a>
+            <a class="page-projects-card-button" href="https://top.gg/bot/732233716604076075" target="_blank">LEARN MORE</a>
           </div>
           <div class="page-projects-card">
-            <h1 class="page-projects-card-title">easyhiven.js</h1>
-            <img src="assets/hiven.png" alt="Hiven Logo" height="64px" width="56px" class="page-projects-card-image">
+            <h1 class="page-projects-card-title">UwU</h1>
+            <img src="assets/uwu.png" alt="UwU" height="64px" width="64px" class="page-projects-card-image">
             <p class="page-projects-card-text"
-              >Anyone can make a Hiven bot!<br><br
-              >easyhiven.js is a nodejs module to communicate with Hiven's api.<br
-              >It's both easy to use and very powerful, so no matter your coding experience, you'll get something out of it!
+              >De onye and onwy cowwect vawiant of Engwish!
             </p>
-            <a class="page-projects-card-button" href="https://github.com/FrostbyteSpace/easyhiven.js">LEARN MORE</a>
+            <a class="page-projects-card-button" href="https://uwu.aroleaf.tk" target="_blank">LEARN MORE</a>
           </div>
         </div>
       </div>
