@@ -72,10 +72,15 @@ nav {
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
+  background-image: linear-gradient(var(--bg-main),var(--bg-main));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: .25s ease;
 }
 .nav-link:hover,
 .nav-link.active {
-  background-color: var(--bg-main);
+  background-size: 100% 100%;
+  transition: .25s ease;
 }
 .nav-link.active {
   cursor: default;
@@ -127,10 +132,10 @@ main {
 
 
 /* 
- _  _               
-| || |___ _ __  ___ 
-| __ / _ \ '  \/ -_)
-|_||_\___/_|_|_\___|
+  _  _               
+ | || |___ _ __  ___ 
+ | __ / _ \ '  \/ -_)
+ |_||_\___/_|_|_\___|
 
 */
 
@@ -177,10 +182,13 @@ main {
             |__/               
 */
 
+#page-projects {
+  padding: 32px 0px;
+}
+
 .page-projects-title {
   font-size: 64px;
   color: var(--text-light);
-  margin: 32px 0px;
   text-align: center;
 }
 
@@ -256,6 +264,49 @@ main {
   background-image: linear-gradient(#0000007f, #0000007f), url('../assets/uwu.jpg');
   background-size: cover;
   background-position: center;
+}
+
+
+
+/* 
+   ___         _           _   
+  / __|___ _ _| |_ __ _ __| |_ 
+ | (__/ _ \ ' \  _/ _` / _|  _|
+  \___\___/_||_\__\__,_\__|\__|
+*/
+
+#page-contact {
+  padding: 32px 0px;
+}
+
+.page-contact-title {
+  font-size: 64px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.page-contact-grid {
+  max-width: 768px;
+  margin: 32px auto;
+  box-shadow: 0px 0px 2px 2px #000;
+}
+
+.page-contact-grid-item {
+  display: block;
+  padding: 8px;
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--text-light);
+  text-shadow: 1px 1px 2px #000;
+  text-decoration: none;
+  background-image: url('../assets/genshin.jpeg');
+  background-size: auto 600%;
+  transition: .2s;
+}
+.page-contact-grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 2px 3px #000;
+  transition: .2s;
 }
 
 
@@ -383,4 +434,19 @@ span.bg-rainbow {
   .page {
     left: 0px;
   }
+}
+
+
+
+.icon.twitter {
+  color: #55acee;
+}
+.icon.reddit {
+  color: #ff4500;
+}
+.icon.discord {
+  color: #7289DA;
+}
+.icon.github {
+  color: var(--text-light);
 }
