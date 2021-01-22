@@ -127,7 +127,7 @@ main {
 
 
 /* 
-_  _               
+ _  _               
 | || |___ _ __  ___ 
 | __ / _ \ '  \/ -_)
 |_||_\___/_|_|_\___|
@@ -185,15 +185,18 @@ _  _
 }
 
 .page-projects-grid {
-  max-width: 832px;
+  width: max-content;
+  max-width: 100%;
   display: grid;
-  grid-template: 1fr / 1fr 1fr;
-  grid-gap: 96px;
-  padding: 32px;
+  grid-template: 1fr / 1fr;
+  grid-gap: 64px;
   margin: 0px auto;
+  padding: 32px;
+  box-sizing: border-box;
 }
 
 .page-projects-card {
+  max-width: 512px;
   display: grid;
   grid-template: auto 1fr 48px / 1fr;
   padding: 16px;
@@ -204,8 +207,8 @@ _  _
 }
 .page-projects-card:hover {
   box-shadow: 0px 0px 8px 4px #000;
-  transition: .25s;
   transform: scale(1.05);
+  transition: .25s;
 }
 
 .page-projects-card-title {
@@ -216,6 +219,8 @@ _  _
 .page-projects-card-text {
   transition: .25s;
   font-size: 20px;
+  line-height: 1.2em;
+  min-height: 6em;
 }
 
 .page-projects-card-button {
@@ -223,12 +228,12 @@ _  _
   width: 128px;
   height: 32px;
   margin: 16px auto;
-  padding: 4px;
+  padding: 4px 0px;
   box-sizing: border-box;
   color: var(--text-light);
   text-decoration: none;
-  font-weight: bold;
   text-align: center;
+  font-weight: bold;
   border: 2px solid var(--text-light);
   background-image: linear-gradient(90deg, rgba(255,255,255,0) 25%, rgba(255,255,255,0.25), rgba(255,255,255,0) 75%);
   background-size: 50% 100%;
@@ -255,23 +260,24 @@ _  _
 
 
 
-@media only screen and (max-width: 1900px) {
+@media only screen and (min-width: 720px) {
   .page-projects-grid {
     grid-template: 1fr / 1fr 1fr;
-    max-width: 832px
+    padding: 32px 64px;
   }
 }
 
-@media only screen and (max-width: 1260px) {
+@media only screen and (min-width: 1366px) {
   .page-projects-grid {
-    grid-template: 1fr / 1fr;
+    padding: 32px 96px;
+    grid-gap: 96px;
   }
 }
 
-@media only screen and (max-width: 700px) {
-  .page-projects-grid,
-  .page-projects-title {
-    max-width: 448px;
+@media only screen and (min-width: 1920px) {
+  .page-projects-grid {
+    grid-template: 1fr / 1fr 1fr 1fr;
+    padding: 32px 96px;
   }
 }
 
@@ -330,7 +336,7 @@ span.bg-rainbow {
 
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1280px) {
   .nav-open {
     position: fixed;
     top: 16px;
@@ -376,11 +382,5 @@ span.bg-rainbow {
 
   .page {
     left: 0px;
-  }
-
-  .page-home-about,
-  .page-projects-grid,
-  .page-projects-title {
-    max-width: 448px;
   }
 }
