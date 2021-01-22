@@ -140,13 +140,13 @@ main {
 */
 
 #page-home {
-  padding: 0px 32px;
+  padding: 32px;
 }
 
 .page-home-title {
   font-size: 64px;
   color: var(--text-light);
-  margin: 32px 0px 64px;
+  margin-bottom: 64px;
   text-align: center;
 }
 
@@ -222,13 +222,13 @@ main {
 .page-projects-card-title {
   font-size: 32px;
   color: var(--text-light);
+  text-shadow: 1px 1px 4px #000;
 }
 
 .page-projects-card-text {
   transition: .25s;
   font-size: 20px;
-  line-height: 1.2em;
-  min-height: 6em;
+  text-shadow: 1px 1px 4px #000, -1px -1px 4px #000;
 }
 
 .page-projects-card-button {
@@ -255,13 +255,13 @@ main {
 }
 
 .project-frost {
-  background-image: linear-gradient(#0000007f, #0000007f), url('../assets/frostbyte.png');
+  background-image: url('../assets/frostbyte.png');
   background-size: cover;
   background-position: center;
 }
 
 .project-uwu {
-  background-image: linear-gradient(#0000007f, #0000007f), url('../assets/uwu.jpg');
+  background-image: url('../assets/uwu.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -276,7 +276,8 @@ main {
 */
 
 #page-contact {
-  padding: 32px 0px;
+  padding: 32px;
+  min-width: min-content;
 }
 
 .page-contact-title {
@@ -299,6 +300,7 @@ main {
   color: var(--text-light);
   text-shadow: 1px 1px 2px #000;
   text-decoration: none;
+  white-space: nowrap;
   background-image: url('../assets/genshin.jpeg');
   background-size: auto 600%;
   transition: .2s;
