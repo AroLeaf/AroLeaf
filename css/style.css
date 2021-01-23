@@ -15,7 +15,23 @@ body {
 }
 
 .nav-open {
-  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 32px;
+  color: #fff;
+  transition: .25s;
+  z-index: 10;
+  text-shadow: 2px 2px 4px #000;
+}
+.nav-open.active {
+  transition: .25s;
+  left: 272px;
 }
 
 p,h1,h2,h3,h4,h5,h6 {
@@ -39,56 +55,41 @@ nav {
   background-color: var(--bg-dark);
   position: fixed;
   top: 0px;
+  left: -256px;
   z-index: 10;
   box-shadow: 0px 0px 5px 2px #000;
   transition: .25s;
   overflow: auto;
 }
-
-.nav-logo {
-  width: 100%;
-  padding: 8px;
-  display: block;
-  box-sizing: border-box;
-  background-color: var(--bg-main);
-}
-.nav-logo img {
-  display: block;
-  margin: 0px auto;
-  border-radius: 6px;
+nav.active {
+  left: 0px;
+  transition: .25s;
 }
 
-.nav-title {
-  display: block;
-  font-size: 24px;
-  padding: 4px;
+.nav-spacer {
+  height: 16px;
 }
 
 .nav-link {
-  font-size: 20px;
+  font-size: 32px;
   display: block;
   padding: 4px;
   color: var(--text-light);
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
-  background-image: linear-gradient(var(--bg-main),var(--bg-main));
+  background-image: linear-gradient(var(--bg-main), var(--bg-main));
   background-repeat: no-repeat;
   background-size: 0% 100%;
-  transition: .25s ease;
+  transition: .2s;
 }
 .nav-link:hover,
 .nav-link.active {
   background-size: 100% 100%;
-  transition: .25s ease;
+  transition: .2s;
 }
 .nav-link.active {
   cursor: default;
-}
-
-.nav-spacer {
-  height: 24px;
-  background-color: var(--bg-dark);
 }
 
 
@@ -104,8 +105,8 @@ nav {
 main {
   width: 100%;
   margin: 0px;
+  margin-top: 48px;
   padding: 0px;
-  padding-left: 256px;
   box-sizing: border-box;
   position: absolute;
   top: 0px;
@@ -116,7 +117,7 @@ main {
 .page {
   position: absolute;
   top: 0px;
-  left: 256px;
+  left: 0px;
   right: 0px;
   z-index: -1;
   opacity: 0;
@@ -152,10 +153,52 @@ main {
 
 .page-home-about {
   max-width: 75%;
+  min-height: 256px;
   margin: 32px auto;
   padding: 16px 32px;
+  box-sizing: border-box;
   border-radius: 3px;
+  position: relative;
+  top: 0px;
   box-shadow: 0px 0px 2px 4px #000;
+  background-color: #0000007f;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.page-home-about::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  background-image: url('../assets/genshin-stars.png');
+  background-size: 100% auto;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.page-home-about-image {
+  float: right;
+  width: 192px;
+  height: 192px;
+  margin: 4px;
+  position: relative;
+  top: 0;
+  z-index: 0;
+}
+
+.page-home-about-image::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px; 
+  background-image: conic-gradient(#000, #3aa63f, #a8d47a, #fff, #000, #810081, #810081, #fff, #000);
+  background-size: 100% auto;
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .page-home-about-title {
@@ -205,8 +248,6 @@ main {
 
 .page-projects-card {
   max-width: 512px;
-  display: grid;
-  grid-template: auto 1fr 48px / 1fr;
   padding: 16px;
   box-sizing: border-box;
   box-shadow: 0px 0px 2px 4px #000;
@@ -219,16 +260,22 @@ main {
   transition: .25s;
 }
 
+.page-projects-card-content {
+  display: grid;
+  grid-template: auto 1fr 64px / 1fr;
+  background-color: #0000007f;
+  box-shadow: 0px 0px 2px 3px #0000007f;
+  border-radius: 2px;
+}
+
 .page-projects-card-title {
   font-size: 32px;
   color: var(--text-light);
-  text-shadow: 1px 1px 4px #000;
 }
 
 .page-projects-card-text {
   transition: .25s;
   font-size: 20px;
-  text-shadow: 1px 1px 4px #000, -1px -1px 4px #000;
 }
 
 .page-projects-card-button {
@@ -301,7 +348,7 @@ main {
   text-shadow: 1px 1px 2px #000;
   text-decoration: none;
   white-space: nowrap;
-  background-image: url('../assets/genshin.jpeg');
+  background-image: url('../assets/genshin-gang.jpeg');
   background-size: auto 600%;
   transition: .2s;
 }
@@ -320,17 +367,11 @@ main {
   }
 }
 
-@media only screen and (min-width: 1366px) {
-  .page-projects-grid {
-    padding: 32px 96px;
-    grid-gap: 96px;
-  }
-}
-
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1280px) {
   .page-projects-grid {
     grid-template: 1fr / 1fr 1fr 1fr;
     padding: 32px 96px;
+    grid-gap: 96px;
   }
 }
 
@@ -385,57 +426,6 @@ span.bg-rainbow {
   0%{background-position:0% 82%}
   50%{background-position:100% 19%}
   100%{background-position:0% 82%}
-}
-
-
-
-@media only screen and (max-width: 1280px) {
-  .nav-open {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    display: block;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 32px;
-    color: #fff;
-    transition: .25s;
-    z-index: 10;
-    text-shadow: 2px 2px 4px #000;
-  }
-  .nav-open.active {
-    transition: .25s;
-    left: 272px;
-  }
-
-  nav {
-    left: -256px;
-    transition: .25s;
-  }
-  nav.active {
-    transition: .25s;
-    left: 0px;
-  }
-  .nav-link {
-    font-size: 32px;
-  }
-  .nav-title {
-    font-size: 48px;
-  }
-  .nav-spacer {
-    height: 32px;
-  }
-
-  main {
-    margin-top: 48px;
-    padding-left: 0px;
-  }
-
-  .page {
-    left: 0px;
-  }
 }
 
 

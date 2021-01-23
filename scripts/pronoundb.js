@@ -12,25 +12,20 @@ class Pronouns {
   }
 
   toString() {
-    return this.pronouns;
+    return this.text;
   }
 
-  static twitter(id) {
-    return new Pronouns('twitter', id);
+  static async twitter(id) {
+    return await new Pronouns('twitter', id).get();
   }
-  static discord(id) {
-    return new Pronouns('discord', id);
+  static async discord(id) {
+    return await new Pronouns('discord', id).get();
   }
-  static github(id) {
-    return new Pronouns('github', id);
+  static async github(id) {
+    return await new Pronouns('github', id).get();
   }
-  static twitch(id) {
-    return new Pronouns('twitch', id);
-  }
-
-  static async githubIdFromName(name) {
-    const github = await axios.get(`https://api.github.com/users/${name}`);
-    return github.data.id;
+  static async twitch(id) {
+    return await new Pronouns('twitch', id).get();
   }
 
   static texts = {

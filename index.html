@@ -24,20 +24,15 @@
       <div class="page active" id="page-home">
         <h1 class="page-home-title">AroLeaf</h1>
         <div class="page-home-about">
+          <div class="page-home-about-image"><img src="assets/space-leaf.jpg" alt="Frost" style="border-radius:50%;" height="192px" width="192px"></div>
           <h1 class="page-home-about-title">About Me</h1>
-          <!-- something floated right -->
           <p class="page-home-about-text"
             >I'm AroLeaf, a 17yo hobby programmer from the Netherlands.<br class="p"
-            >I'm <span
-              class="text-bg-wrapper"><span class="text-bg" style="background-image:linear-gradient(90deg,#3aa63f,#a8d47a,#fff,#aaa,#000);">aromantic</span></span
-            > and <span
-              class="text-bg-wrapper"><span class="text-bg" style="background-image:linear-gradient(90deg,#000,#a4a4a4,#fff,#810081);">asexual</span></span>,<br
-            >and use <span 
+            >I'm aromantic and asexual, and use <span 
               id="page-home-about-pronouns"></span>. <span style="color:var(--text-dark);font-size:16px;">(provided by <a href="https://pronoundb.org">pronoundb.org</a>)</span>
             <script>
               (async () => {
-                const id = await Pronouns.githubIdFromName('AroLeaf');
-                const pronouns = await Pronouns.github(id).get();
+                const pronouns = await Pronouns.github(59538202);
                 document.getElementById('page-home-about-pronouns').innerHTML = pronouns.text;
               })()
             </script>
@@ -53,20 +48,24 @@
         <h1 class="page-projects-title">Projects</h1>
         <div class="page-projects-grid">
           <div class="page-projects-card project-frost">
-            <h1 class="page-projects-card-title">Frostbyte</h1>
-            <p class="page-projects-card-text"
-              >Frostbyte is a discord bot for furries, made by furries. (and me)<br
-              >It has tons of features, like interaction commands like hug and cuddle, images of cute animals, reddit integration, and much more!
-            </p>
-            <a class="page-projects-card-button" href="https://top.gg/bot/732233716604076075" target="_blank">LEARN MORE</a>
+            <div class="page-projects-card-content">
+              <h1 class="page-projects-card-title">Frostbyte</h1>
+              <p class="page-projects-card-text"
+                >Frostbyte is a discord bot for furries, made by furries. (and me)<br
+                >It has tons of features, like interaction commands like hug and cuddle, images of cute animals, reddit integration, and much more!
+              </p>
+              <a class="page-projects-card-button" href="https://top.gg/bot/732233716604076075" target="_blank">LEARN MORE</a>
+            </div>
           </div>
           <div class="page-projects-card project-uwu">
-            <h1 class="page-projects-card-title">UwU</h1>
-            <p class="page-projects-card-text"
-              >De onye and onwy cowwect vawiant of Engwish!<br
-              >I'm wowking on documentation fow dis beautiful wanguage, but we need mowe woose wowds that awe diffewent so pwease contwibute &gt;///&lt;
-            </p>
-            <a class="page-projects-card-button" href="https://uwu.aroleaf.tk" target="_blank">LEARN MORE</a>
+            <div class="page-projects-card-content">
+              <h1 class="page-projects-card-title">UwU</h1>
+              <p class="page-projects-card-text"
+                >De onye and onwy cowwect vawiant of Engwish!<br
+                >I'm wowking on documentation fow dis beautiful wanguage, but we need mowe woose wowds that awe diffewent so pwease contwibute &gt;///&lt;
+              </p>
+              <a class="page-projects-card-button" href="https://uwu.aroleaf.tk" target="_blank">LEARN MORE</a>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +77,7 @@
             <span class="fab fa-github-square icon github"></span> AroLeaf
           </a>
           <a class="page-contact-grid-item" href="https://github.com/FrostbyteSpace" target="_blank" style="background-position: center 20%;">
-            <span><img src="assets/frostbyte.png" alt="placeholder" width="42px" height="42px" style="border-radius:6px;box-shadow:1px 1px 2px 0px #000;"></span> FrostbyteSpace
+            <span><img src="assets/frostbyte.png" alt="Frost" width="42px" height="42px" style="border-radius:6px;box-shadow:1px 1px 2px 0px #000;"></span> FrostbyteSpace
           </a>
           <a class="page-contact-grid-item" href="https://discord.com/channels/@me" target="_blank" style="background-position: center 40%;">
             <span class="fab fa-discord icon discord"></span> AroLeaf#1950
