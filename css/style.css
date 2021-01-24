@@ -152,7 +152,7 @@ main {
 }
 
 .page-home-about {
-  max-width: 75%;
+  max-width: 768px;
   min-height: 256px;
   margin: 32px auto;
   padding: 16px 32px;
