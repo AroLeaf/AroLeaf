@@ -4,12 +4,10 @@ Just some idiot writing bad code.
 - 17yo
 - should learn TypeScript
 - least professional member of @FrostbyteSpace
-- somehow CSS is my most used language
+- somehow HTML is my most used language
 ___
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AroLeaf&layout=compact&theme=dark&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
-
-<div style="display:grid;grid-template:1fr / 1fr 1fr;grid-gap:16px;width:fit-content;">
+<div style="display:grid;grid-template:1fr / 1fr 1fr;width:fit-content;">
   <a href="https://github.com/AroLeaf/AroLeaf" title="AroLeaf/AroLeaf">
     <img src="https://github-readme-stats.vercel.app/api/pin?username=AroLeaf&repo=AroLeaf&theme=dark&hide_border=true" alt="pin">
   </a>
@@ -29,3 +27,6 @@ ___
     <img src="https://github-readme-stats.vercel.app/api/pin?username=AroLeaf&repo=djs-slashes&theme=dark&hide_border=true" alt="pin">
   </a>
 </div>
+
+---
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AroLeaf&layout=compact&theme=dark&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
