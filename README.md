@@ -9,7 +9,7 @@ ___
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AroLeaf&layout=compact&theme=dark&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
 
-<div style="display:grid;grid-template:1fr / 1fr 1fr;grid-gap:8px;width:fit-content;">
+<div style="display:grid;grid-template:1fr / 1fr 1fr;grid-gap:16px;width:fit-content;">
   <a href="https://github.com/AroLeaf/AroLeaf" title="AroLeaf/AroLeaf">
     <img src="https://github-readme-stats.vercel.app/api/pin?username=AroLeaf&repo=AroLeaf&theme=dark&hide_border=true" alt="pin">
   </a>
