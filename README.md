@@ -3,7 +3,6 @@
 **Just some idiot writing bad code.**
 - 17yo
 - should learn TypeScript
-- least professional member of [@FrostbyteSpace](https://github.com/FrostbyteSpace)
 - somehow HTML is my most used language
 ___
 
