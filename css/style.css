@@ -263,6 +263,7 @@ main {
 .page-projects-card-content {
   display: grid;
   grid-template: auto 1fr 64px / 1fr;
+  height: 100%;
   background-color: #0000007f;
   box-shadow: 0px 0px 2px 3px #0000007f;
   border-radius: 2px;
@@ -301,8 +302,8 @@ main {
   transition: .5s ease;
 }
 
-.project-frost {
-  background-image: url('../assets/frostbyte.png');
+.project-api {
+  background-image: url('../assets/genshin-gang.jpeg');
   background-size: cover;
   background-position: center;
 }
