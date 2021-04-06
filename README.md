@@ -1,6 +1,6 @@
 # AroLeaf
 
-**Just some 17yo idiot writing bad code >wO**
+**Just some 17yo idiot writing bad code >wO**\
 I should learn TypeScript
 ___
 
