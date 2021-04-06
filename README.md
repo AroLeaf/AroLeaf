@@ -1,9 +1,7 @@
 # AroLeaf
 
-**Just some idiot writing bad code.**
-- 17yo
-- should learn TypeScript
-- somehow HTML is my most used language
+**Just some 17yo idiot writing bad code >wO**
+I should learn TypeScript
 ___
 
 <div style="display:grid;grid-template:1fr / 1fr 1fr;width:fit-content;">
