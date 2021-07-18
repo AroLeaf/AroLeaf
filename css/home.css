@@ -38,12 +38,6 @@ body {
 
 
 
-header {
-  /*  */
-}
-
-
-
 main {
   width: 50%;
   min-width: 512px;
@@ -127,7 +121,7 @@ main {
   font-size: 24px;
   text-decoration: none;
   display: block;
-  background-image: url('assets/socials-banner.gif');
+  background-image: url('../assets/puck-banner.gif');
   background-size: auto 600%;
   transition: .2s;
   box-sizing: border-box;
