@@ -12,6 +12,11 @@ a:hover {
   transition: .2s;
 }
 
+.emoji {
+  width: 1em;
+  height: 1em;
+}
+
 html {
   --bg-primary: #222;
   --bg-secondary: #333;
