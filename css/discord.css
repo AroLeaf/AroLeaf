@@ -138,6 +138,7 @@
   border-radius: 4px;
   box-shadow: 0px 0px 2px 1px #000;
   transition: .2s;
+  letter-spacing: 0.5px;
 }
 
 .discord a {
