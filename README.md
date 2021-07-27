@@ -1,5 +1,5 @@
 # Leaf
-![Pronouns](https://img.shields.io/endpoint?color=3a2&style=flat-square&url=https%3A%2F%2Fpronoundb.org%2Fshields%2F6006ab85406af11e4593a018)
+[![Pronouns](https://img.shields.io/endpoint?color=3a2&style=flat-square&url=https%3A%2F%2Fpronoundb.org%2Fshields%2F6006ab85406af11e4593a018)](https://pronoundb.org)
 
 **Just some 18yo idiot writing bad code >wO**
 
