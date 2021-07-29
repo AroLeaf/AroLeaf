@@ -132,13 +132,13 @@
 .discord {
   overflow-x: auto;
   background-color: #36393f;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
   color: #dcddde;
   padding: 4px 0px;
   border-radius: 4px;
   box-shadow: 0px 0px 2px 1px #000;
   transition: .2s;
-  letter-spacing: 0.5px;
+  /* letter-spacing: 0.5px; */
 }
 
 .discord a {
@@ -170,6 +170,7 @@
 
 .discord .message .header {
   color: #72767d;
+  margin-bottom: 2px;
 }
 .discord .message .header .username {
   margin-right: 4px;
@@ -178,6 +179,8 @@
 .discord .message .header .timestamp {
   font-size: 12px;
   margin-left: 4px;
+  position: relative;
+  bottom: 2px;
 }
 
 .discord .message .content {
@@ -197,8 +200,8 @@
   box-sizing: border-box;
   display: inline-block;
   position: relative;
-  bottom: 3px;
-  font-size: 9px;
+  bottom: 2px;
+  font-size: 10px;
   font-weight: 500;
   content: "BOT";
   margin-right: 4px;

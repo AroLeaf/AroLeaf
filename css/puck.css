@@ -3,12 +3,12 @@ h1,h2,h3,h4,h5,h6,p {
   padding: 0;
 }
 a {
-  color: var(--color-contrast);
+  color: var(--leaf-contrast);
   text-decoration: none;
   transition: .2s;
 }
 a:hover {
-  color: var(--color-primary);
+  color: var(--leaf-primary);
   transition: .2s;
 }
 
@@ -26,9 +26,11 @@ html {
   --txt-contrast: #fff;
   --txt-muted: #888;
 
-  --color-primary: #3a2;
-  --color-secondary: #281;
-  --color-contrast: #4c2;
+  --leaf-primary: #3a2;
+  --leaf-secondary: #281;
+  --leaf-contrast: #4c2;
+
+  --puck-primary: #bdc3b9;
 
   margin: 0;
   padding: 0;
@@ -48,6 +50,7 @@ main {
   width: 50%;
   min-width: 512px;
   margin: 32px auto;
+  padding: 0px;
   border-radius: 8px;
   background-color: var(--bg-secondary);
 }
@@ -76,6 +79,41 @@ main {
 }
 
 
+.links {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  grid-gap: 32px;
+  padding: 32px;
+  background-color: var(--puck-primary);
+}
+
+.links-card {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+  transition: .2s;
+}
+.links-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 4px 2px #000;
+  transition: .2s;
+}
+
+.links-card-title {
+  font-size: 24px;
+  color: var(--txt-contrast);
+}
+
+.links-card-image {
+  border-radius: 4px;
+  float: right;
+}
+
+.links-card-text {
+  color: var(--txt-primary);
+}
+
+
 .features {
   padding: 32px;
 }
@@ -89,4 +127,11 @@ main {
   margin: 16px 8px;
   border-color: var(--bg-primary);
   border-style: solid;
+}
+
+
+.credit {
+  text-align: center;
+  padding-bottom: 16px;
+  margin-top: -16px;
 }
