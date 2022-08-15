@@ -6,8 +6,7 @@ html {
   --txt-main: #eee;
   --txt-contrast: #fff;
 
-  --leaf-main: #4c2;
-  --leaf-contrast: #5f3;
+  --leaf-green: hsl(90, 60%, 50%);
 }
 
 h1,h2,p,ul {
@@ -16,16 +15,16 @@ h1,h2,p,ul {
   list-style: none;
 }
 h1 {
-  color: var(--leaf-contrast);
+  color: var(--leaf-green);
   font-size: 128px;
 }
 h2 {
-  color: var(--txt-contrast);
+  color: var(--leaf-green);
   font-size: 64px;
 }
 
 a {
-  color: var(--leaf-main);
+  color: var(--leaf-green);
   text-decoration: none;
 }
 a:hover {
@@ -42,6 +41,9 @@ body {
 }
 
 main {
+  /* display: flex;
+  flex-direction: column;
+  gap: 4px; */
   max-width: 768px;
   margin: 0px auto;
   padding: 64px 96px;
@@ -49,7 +51,7 @@ main {
 }
 
 .focus {
-  color: var(--leaf-main);
+  color: var(--leaf-green);
 }
 
 .intro {
@@ -59,21 +61,11 @@ main {
 }
 
 .intro .key {
-  color: var(--leaf-main);
+  color: var(--leaf-green);
 }
 
 .intro .icon {
   vertical-align: -4px;
-}
-
-.fa-leaf {
-  font-size: 16px;
-  vertical-align: 3px;
-  color: var(--leaf-contrast);
-}
-.fa-circle {
-  font-size: 12px;
-  vertical-align: 5px;
 }
 
 
