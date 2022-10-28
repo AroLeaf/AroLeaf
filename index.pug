@@ -1,0 +1,73 @@
+mixin fa(icon, style='solid')
+  i(class=`fa-${style} fa-${icon}`)&attributes(attributes)
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
+    link(href='https://fonts.googleapis.com/css2?family=Chewy&display=swap' rel='stylesheet')
+    link(rel='stylesheet', href='wip.css')
+    
+    script(src='https://kit.fontawesome.com/d649462fb3.js' crossorigin='anonymous')
+    script(src='gallery.js')
+    
+    title Leaf
+  
+  body: main
+    .banner #[span.green Leaf] · Just some random developer
+
+    .about
+      p.green Pronouns
+      p they/them
+
+      p.green Orientation
+      p.
+        #[a(href='https://www.lgbtqia.wiki/wiki/Aromantic' target='_blank') aromantic #[img.inline(src='assets/aro.png')]]
+        and #[a(href='https://www.lgbtqia.wiki/wiki/Asexual' target='_blank') asexual #[img.inline(src='assets/ace.png')]].
+
+      p.green Age
+      p 19 years old
+
+      p.green I Use
+      .tools
+        +fa('html5',    'brands')(style='color: #c24725;')
+        +fa('css3-alt', 'brands')(style='color: #285ea8;')
+        +fa('js',       'brands')(style='color: #f0db4f;')
+        img.inline(src='assets/pug.png')
+        img.inline(src='assets/svelte.png')
+        br
+        +fa('node-js',  'brands')(style='color: #689f63;')
+        img.inline(src='assets/c-lang.png')
+
+      p.green Socials
+      .socials
+        a(href='https://github.com/AroLeaf', target='_blank'): +fa('github', 'brands')
+        a(href='https://twitter.com/LeafOnSayusHood', target='_blank' style='color: #1da1f2;'): +fa('twitter', 'brands')
+        a(href='https://discord.gg/UtE44fCG8m', target='_blank' style='color: #5865f2;'): +fa('discord', 'brands')
+    
+
+    .projects
+      script.
+        const gallery = new Gallery();
+        window.addEventListener('load', () => gallery.update('.projects .tab'));
+
+      h2 Projects
+      p.green coming soon
+
+      mixin header(current)
+        .header
+          each project, i in ['Psithurism', 'TCN Relay']
+            p(onclick = `gallery.set(${i})` class = { green: i === current } )= project
+
+      //- .tabs
+      //-   - let i = 0;
+      //-   .tab
+      //-     +header(i++)
+      //-     p A programming language with | pipes.
+        
+      //-   .tab
+      //-     +header(i++)
+      //-     p A bot to connect over 35 discord channels together as one.
