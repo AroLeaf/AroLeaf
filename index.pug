@@ -57,60 +57,59 @@ html(lang='en')
               a(href=link.href, target='_blank' style=`${link.color ? `color: ${link.color};` : ''}`): +fa(link.icon.name, link.icon.type)
           p.description #{project.description}
       
-      .list
-        +project({
-          name: 'Teyvat Collective Network',
-          description: 'I maintain several bots and web services for the Teyvat Collective Network, a network of Genshin Impact character fan servers on Discord.',
-          links: [{
-            href: 'https://discord.gg/FG2wpbywSx',
-            icon: { name: 'discord', type: 'brands' },
-            color: '#5865f2',
-          }, {
-            href: 'https://github.com/Teyvat-Collective-Network',
-            icon: { name: 'github', type: 'brands' },
-          }],
-        })
+      +project({
+        name: 'Teyvat Collective Network',
+        description: 'I maintain several bots and web services for the Teyvat Collective Network, a network of Genshin Impact character fan servers on Discord.',
+        links: [{
+          href: 'https://discord.gg/FG2wpbywSx',
+          icon: { name: 'discord', type: 'brands' },
+          color: '#5865f2',
+        }, {
+          href: 'https://github.com/Teyvat-Collective-Network',
+          icon: { name: 'github', type: 'brands' },
+        }],
+      })
 
-        +project({
-          name: 'embeds.leaf.moe',
-          description: 'A Discord embed generator using only markdown as input.',
-          links: [{
-            href: 'https://embeds.leaf.moe',
-            icon: { name: 'globe', type: 'solid' },
-          }, {
-            href: 'https://github.com/AroLeaf/embeds.leaf.moe',
-            icon: { name: 'github', type: 'brands' },
-          }],
-        })
+      +project({
+        name: 'embeds.leaf.moe',
+        description: 'A Discord embed generator using only markdown as input.',
+        links: [{
+          href: 'https://embeds.leaf.moe',
+          icon: { name: 'globe', type: 'solid' },
+        }, {
+          href: 'https://github.com/AroLeaf/embeds.leaf.moe',
+          icon: { name: 'github', type: 'brands' },
+        }],
+      })
 
-        +project({
-          name: 'Psithurism',
-          description: 'A programming language I\'m writing.',
-          links: [{
-            href: 'https://npmjs.com/package/psithurism',
-            icon: { name: 'npm', type: 'brands' },
-            color: '#cb3837',
-          }, {
-            href: 'https://psithurism.leaf.moe',
-            icon: { name: 'book', type: 'solid' },
-          }, {
-            href: 'https://github.com/AroLeaf/psithurism',
-            icon: { name: 'github', type: 'brands' },
-          }],
-        })
+      +project({
+        name: 'Psithurism',
+        description: 'A programming language I\'m writing.',
+        links: [{
+          href: 'https://npmjs.com/package/psithurism',
+          icon: { name: 'npm', type: 'brands' },
+          color: '#cb3837',
+        }, {
+          href: 'https://psithurism.leaf.moe',
+          icon: { name: 'book', type: 'solid' },
+        }, {
+          href: 'https://github.com/AroLeaf/psithurism',
+          icon: { name: 'github', type: 'brands' },
+        }],
+      })
 
-        +project({
-          name: 'WaifuSocket',
-          description: 'A node.js module that allows you to easily connect to the Waifulabs V2 API.',
-          links: [{
-            href: 'https://www.npmjs.com/package/waifusocket',
-            icon: { name: 'npm', type: 'brands' },
-            color: '#cb3837',
-          }, {
-            href: 'https://waifusocket.leaf.moe',
-            icon: { name: 'book', type: 'solid' },
-          }, {
-            href: 'https://github.com/AroLeaf/WaifuSocket',
-            icon: { name: 'github', type: 'brands' },
-          }],
-        })
+      +project({
+        name: 'WaifuSocket',
+        description: 'A node.js module that allows you to easily connect to the Waifulabs V2 API.',
+        links: [{
+          href: 'https://www.npmjs.com/package/waifusocket',
+          icon: { name: 'npm', type: 'brands' },
+          color: '#cb3837',
+        }, {
+          href: 'https://waifusocket.leaf.moe',
+          icon: { name: 'book', type: 'solid' },
+        }, {
+          href: 'https://github.com/AroLeaf/WaifuSocket',
+          icon: { name: 'github', type: 'brands' },
+        }],
+      })

@@ -96,16 +96,10 @@ main {
   filter: brightness(0.75);
 }
 
-.projects .list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.projects {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-}
-
-@media screen and (max-width: 540px) {
-  .projects .list {
-    grid-template-columns: 1fr;
-  }
 }
 
 h2 {
