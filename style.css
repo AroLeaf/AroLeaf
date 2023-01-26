@@ -44,7 +44,7 @@ body::selection {
 }
 
 main {
-  max-width: 1280px;
+  max-width: 1024px;
   width: fit-content;
   margin: 0px auto;
   display: flex;
@@ -89,64 +89,43 @@ main {
 
 .socials a {
   color: var(--fg);
+  transition: .15s;
 }
 
 .socials a:hover {
   filter: brightness(0.75);
 }
 
-
-.projects {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.projects .list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
-.projects h2 {
+@media screen and (max-width: 540px) {
+  .projects .list {
+    grid-template-columns: 1fr;
+  }
+}
+
+h2 {
   font-size: 48px;
 }
 
-.projects h3 {
+.projects .title {
   font-size: 32px;
-}
-
-.projects p {
-  font-size: 24px;
-}
-
-.projects .tabs {
-  position: relative;
-}
-
-.projects .tab {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: .15s;
-  z-index: -1;
-}
-
-.projects .tab.active {
-  opacity: 1;
-  z-index: initial;
-}
-
-.projects .tab .header {
   display: flex;
-  margin-bottom: 8px;
+  gap: 8px;
 }
 
-.projects .tab .header p {
-  border-bottom: 2px solid var(--fg);
-  padding: 0px 12px;
-  font-size: 32px;
-  cursor: pointer;
-  transition: opacity .1s;
+.project .title a {
+  color: var(--fg);
+  transition: .15s;
+}
+.project .title a:hover {
+  filter: brightness(0.75);
 }
 
-.projects .tab.active .header p.green,
-.projects .tab .header p:hover {
-  color: var(--green);
-  border-color: var(--green);
+.project .description {
+  font-size: 24px;
 }

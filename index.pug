@@ -11,8 +11,7 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css2?family=Chewy&display=swap' rel='stylesheet')
     link(rel='stylesheet', href='style.css')
     
-    script(src='https://kit.fontawesome.com/d649462fb3.js' crossorigin='anonymous')
-    script(src='gallery.js')
+    script(defer src='https://kit.fontawesome.com/d649462fb3.js' crossorigin='anonymous')
     
     title Leaf
   
@@ -29,7 +28,7 @@ html(lang='en')
         and #[a(href='https://www.lgbtqia.wiki/wiki/Asexual' target='_blank') asexual #[img.inline(src='assets/ace.png')]].
 
       p.green Age
-      p 19 years old
+      p 19
 
       p.green I Use
       .tools
@@ -44,30 +43,74 @@ html(lang='en')
 
       p.green Socials
       .socials
-        a(href='https://github.com/AroLeaf', target='_blank'): +fa('github', 'brands')
+        a(href='https://github.com/AroLeaf',          target='_blank'                        ): +fa('github',  'brands')
         a(href='https://twitter.com/LeafOnSayusHood', target='_blank' style='color: #1da1f2;'): +fa('twitter', 'brands')
-        a(href='https://discord.gg/UtE44fCG8m', target='_blank' style='color: #5865f2;'): +fa('discord', 'brands')
-    
+        a(href='https://discord.gg/UtE44fCG8m',       target='_blank' style='color: #5865f2;'): +fa('discord', 'brands')
 
     .projects
-      script.
-        const gallery = new Gallery();
-        window.addEventListener('load', () => gallery.update('.projects .tab'));
-
       h2 Projects
-      p.green coming soon
+      mixin project(project)
+        .project
+          p.title
+            span.green #{project.name}
+            for link in project.links
+              a(href=link.href, target='_blank' style=`${link.color ? `color: ${link.color};` : ''}`): +fa(link.icon.name, link.icon.type)
+          p.description #{project.description}
+      
+      .list
+        +project({
+          name: 'Teyvat Collective Network',
+          description: 'I maintain several bots and web services for the Teyvat Collective Network, a network of Genshin Impact character fan servers on Discord.',
+          links: [{
+            href: 'https://discord.gg/FG2wpbywSx',
+            icon: { name: 'discord', type: 'brands' },
+            color: '#5865f2',
+          }, {
+            href: 'https://github.com/Teyvat-Collective-Network',
+            icon: { name: 'github', type: 'brands' },
+          }],
+        })
 
-      mixin header(current)
-        .header
-          each project, i in ['Psithurism', 'TCN Relay']
-            p(onclick = `gallery.set(${i})` class = { green: i === current } )= project
+        +project({
+          name: 'embeds.leaf.moe',
+          description: 'A Discord embed generator using only markdown as input.',
+          links: [{
+            href: 'https://embeds.leaf.moe',
+            icon: { name: 'globe', type: 'solid' },
+          }, {
+            href: 'https://github.com/AroLeaf/embeds.leaf.moe',
+            icon: { name: 'github', type: 'brands' },
+          }],
+        })
 
-      //- .tabs
-      //-   - let i = 0;
-      //-   .tab
-      //-     +header(i++)
-      //-     p A programming language with | pipes.
-        
-      //-   .tab
-      //-     +header(i++)
-      //-     p A bot to connect over 35 discord channels together as one.
+        +project({
+          name: 'Psithurism',
+          description: 'A programming language I\'m writing.',
+          links: [{
+            href: 'https://npmjs.com/package/psithurism',
+            icon: { name: 'npm', type: 'brands' },
+            color: '#cb3837',
+          }, {
+            href: 'https://psithurism.leaf.moe',
+            icon: { name: 'book', type: 'solid' },
+          }, {
+            href: 'https://github.com/AroLeaf/psithurism',
+            icon: { name: 'github', type: 'brands' },
+          }],
+        })
+
+        +project({
+          name: 'WaifuSocket',
+          description: 'A node.js module that allows you to easily connect to the Waifulabs V2 API.',
+          links: [{
+            href: 'https://www.npmjs.com/package/waifusocket',
+            icon: { name: 'npm', type: 'brands' },
+            color: '#cb3837',
+          }, {
+            href: 'https://waifusocket.leaf.moe',
+            icon: { name: 'book', type: 'solid' },
+          }, {
+            href: 'https://github.com/AroLeaf/WaifuSocket',
+            icon: { name: 'github', type: 'brands' },
+          }],
+        })
