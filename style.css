@@ -36,8 +36,9 @@ body {
   margin: 0px;
   padding: 32px;
   background-color: var(--bg);
+  font-family: 'Poppins';
+  font-weight: 600;
   color: var(--fg);
-  font-family: 'Chewy';
 }
 body::selection {
   background-color: var(--blue);
@@ -55,6 +56,7 @@ main {
 
 .banner {
   font-size: 64px;
+  font-family: 'Chewy';
 }
 
 
@@ -65,7 +67,7 @@ main {
 }
 
 .about p {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .about :nth-child(2n+1) {
@@ -73,7 +75,7 @@ main {
 }
 
 .about .tools {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .about .tools > * {
@@ -82,7 +84,7 @@ main {
 }
 
 .socials {
-  font-size: 32px;
+  font-size: 24px;
   display: flex;
   gap: 8px;
 }
@@ -107,7 +109,7 @@ h2 {
 }
 
 .projects .title {
-  font-size: 32px;
+  font-size: 24px;
   display: flex;
   gap: 8px;
 }
@@ -121,5 +123,10 @@ h2 {
 }
 
 .project .description {
-  font-size: 24px;
+  font-size: 20px;
+}
+
+.projects hr {
+  width: 100%;
+  color: var(--green);
 }
