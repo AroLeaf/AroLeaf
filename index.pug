@@ -57,19 +57,6 @@ html(lang='en')
             for link in project.links
               a(href=link.href, target='_blank' style=`${link.color ? `color: ${link.color};` : ''}`): +fa(link.icon.name, link.icon.type)
           p.description #{project.description}
-      
-      +project({
-        name: 'Teyvat Collective Network',
-        description: 'I maintain several bots and web services for the Teyvat Collective Network, a network of Genshin Impact character fan servers on Discord.',
-        links: [{
-          href: 'https://discord.gg/FG2wpbywSx',
-          icon: { name: 'discord', type: 'brands' },
-          color: '#5865f2',
-        }, {
-          href: 'https://github.com/Teyvat-Collective-Network',
-          icon: { name: 'github', type: 'brands' },
-        }],
-      })
 
       +project({
         name: 'embeds.leaf.moe',
