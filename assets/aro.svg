@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="24">
+  <style>
+    #top { clip-path: inset(0px 0px 4px 0px); }
+    #bottom{ clip-path: inset(4px 0px 0px 0px); }
+  </style>
+  
+  <rect id="top" width="36" height="8.8" rx="4" fill="#3DA542"/>
+  <rect y="4.8" width="36" height="4.8" fill="#A7D379"/>
+  <rect y="9.6" width="36" height="4.8" fill="#FFFFFF"/>
+  <rect y="14.4" width="36" height="4.8" fill="#A9A9A9"/>
+  <rect id="bottom" y="15.2" width="36" height="8.8" rx="4" fill="#000000"/>
+</svg>

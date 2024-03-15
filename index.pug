@@ -1,103 +1,50 @@
-mixin fa(icon, style='solid')
-  i(class=`fa-${style} fa-${icon}`)&attributes(attributes)
+mixin feather(icon)
+  svg(
+    width='1em'
+    height='1em'
+    fill='none'
+    stroke='currentColor'
+    stroke-width='2'
+    stroke-linecap='round'
+    stroke-linejoin='round'
+  )&attributes(attributes).feather: use(href='assets/feather-sprite.svg#' + icon)
+
 
 doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    
-    link(rel='preconnect' href='https://fonts.googleapis.com')
-    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
-    link(href='https://fonts.googleapis.com/css2?family=Chewy&display=swap' rel='stylesheet')
-    link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap' rel='stylesheet')
     link(rel='stylesheet', href='style.css')
-    
-    script(defer src='https://kit.fontawesome.com/d649462fb3.js' crossorigin='anonymous')
-    
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Leaf
-  
-  body: main
-    .banner #[span.green Leaf] · Just some random developer
 
-    .about
-      p.green Pronouns
-      p: a(href='https://pronouns.page/@leaf.moe', target='_blank') they/them
+  body
+    input#themeswitch(type='checkbox')
+    
+    header
+      svg(viewbox='0 96 512 320' height='1em' fill='currentColor'): use(href='assets/hex_leaf.svg#leaf')
+      
+      #navbar
+        label(for='page-home') Home
+        label(for='page-projects') Projects
+        //- label(for='page-blog') Blog
+      
+      label(for='themeswitch').stack
+        +feather('sun').dark
+        +feather('moon').light
+    
+    main.stack
+      .page-container
+        input#page-home(type='radio' name='pageswitch' checked)
+        .page.home
+          include pages/home.pug
+      
+      .page-container
+        input#page-projects(type='radio' name='pageswitch')
+        .page.projects
+          include pages/projects.pug
 
-      p.green Orientation
-      p.
-        #[a(href='https://www.lgbtqia.wiki/wiki/Aromantic' target='_blank') aromantic #[img.inline(src='assets/aro.png')]]
-        and #[a(href='https://www.lgbtqia.wiki/wiki/Asexual' target='_blank') asexual #[img.inline(src='assets/ace.png')]].
-
-      p.green Age
-      p 20
-
-      p.green I Use
-      .tools
-        +fa('html5',    'brands')(style='color: #c24725;')
-        +fa('css3-alt', 'brands')(style='color: #285ea8;')
-        +fa('js',       'brands')(style='color: #f0db4f;')
-        img.inline(src='assets/pug.png')
-        img.inline(src='assets/svelte.png')
-        br
-        +fa('node-js',  'brands')(style='color: #689f63;')
-        img.inline(src='assets/c-lang.png')
-
-      p.green Socials
-      .socials
-        a(href='https://github.com/AroLeaf',    target='_blank'                        ): +fa('github',  'brands')
-        a(href='https://twitter.com/leaf_moe',  target='_blank' style='color: #1da1f2;'): +fa('twitter', 'brands')
-        a(href='https://discord.gg/UtE44fCG8m', target='_blank' style='color: #5865f2;'): +fa('discord', 'brands')
-
-    .projects
-      h2 Projects
-      mixin project(project)
-        .project
-          p.title
-            span.green #{project.name}
-            for link in project.links
-              a(href=link.href, target='_blank' style=`${link.color ? `color: ${link.color};` : ''}`): +fa(link.icon.name, link.icon.type)
-          p.description #{project.description}
-
-      +project({
-        name: 'embeds.leaf.moe',
-        description: 'A Discord embed generator using only markdown as input.',
-        links: [{
-          href: 'https://embeds.leaf.moe',
-          icon: { name: 'globe', type: 'solid' },
-        }, {
-          href: 'https://github.com/AroLeaf/embeds.leaf.moe',
-          icon: { name: 'github', type: 'brands' },
-        }],
-      })
-
-      +project({
-        name: 'Psithurism',
-        description: 'A programming language I\'m writing.',
-        links: [{
-          href: 'https://npmjs.com/package/psithurism',
-          icon: { name: 'npm', type: 'brands' },
-          color: '#cb3837',
-        }, {
-          href: 'https://psithurism.leaf.moe',
-          icon: { name: 'book', type: 'solid' },
-        }, {
-          href: 'https://github.com/AroLeaf/psithurism',
-          icon: { name: 'github', type: 'brands' },
-        }],
-      })
-
-      +project({
-        name: 'WaifuSocket',
-        description: 'A node.js module that allows you to easily connect to the Waifulabs V2 API.',
-        links: [{
-          href: 'https://www.npmjs.com/package/waifusocket',
-          icon: { name: 'npm', type: 'brands' },
-          color: '#cb3837',
-        }, {
-          href: 'https://waifusocket.leaf.moe',
-          icon: { name: 'book', type: 'solid' },
-        }, {
-          href: 'https://github.com/AroLeaf/WaifuSocket',
-          icon: { name: 'github', type: 'brands' },
-        }],
-      })
+      //- .page-container
+      //-   input#page-blog(type='radio' name='pageswitch')
+      //-   .page.blog
+      //-     include pages/blog.pug
