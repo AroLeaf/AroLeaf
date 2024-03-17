@@ -1,1 +1,10 @@
-//- nothing here yet!
+p.
+  Here you'll find me documenting all the stupid stuff I do. If I remember to write posts that is.
+
+#blog.vertical
+  each post in blogposts
+    label(for=`page-blog-${post.id}`).post.box
+      .header
+        h3.title= post.title
+        time(datetime=post.timestamp)= post.timestamp.split('T')[0]
+      p.description= post.description

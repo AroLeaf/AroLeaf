@@ -1,0 +1,356 @@
+time(datetime=post.timestamp)= post.timestamp.split('T')[0]
+h1.title= post.title
+
+p.
+  Web developers are great at using HTML and CSS to make websites look beautiful, and they have developed many clever techniques to turn designs into reality.
+  However, they wanted more. They wanted their websites to react to user interaction, so they started using Javascript in their designs.#[br]
+
+p.
+  Javascript is everywhere these days, not only on big fancy web applications, but also on static websites.#[br]
+  Want to add a light/dark theme switch? Javascript.#[br]
+  Want to make it so the user doesn't have to see your site reload every time they go to another page? Javascript.#[br]
+  Want to create some fancy popups to notify the user of the newest changes to your website? Javascript.
+
+p.
+  Is this a bad thing? No. Most people have Javascript enabled in their browsers, and those who don't know what they're getting into.#[br]
+  Despite that, I wondered how far you could get without any Javascript. And as it turns out, you can go far. Really far.
+
+
+
+h3 Origin
+
+p.
+  The idea for this website started when I remembered a little trick to make #[a(href='https://www.w3schools.com/howto/howto_css_custom_checkbox.asp', target='_blank') custom checkboxes] I saw on W3Schools years ago.
+  I realized that if you just made the entire page the "checkbox", you could make a light/dark theme switch without using any Javascript.
+  A label element would serve as the actual switch to change the checkbox's state.
+
+p.
+  Now that this website is done, I want to share the techniques I used to make it, together with some other things I realized would be possible.
+
+
+
+h2 Table of contents
+ul
+  li: a(href='#'+id('themeswitch')) Theme switch
+  li: a(href='#'+id('modal')) Modal
+  li: a(href='#'+id('pages')) Pages
+  li: a(href='#'+id('caveats')) Caveats
+
+
+
+h3(id=id('themeswitch')) Theme switch
+
+p.
+  Let's start with a simplified version of this website's body:
+pre.box: code
+  :highlight(language='html')
+    <body>
+      <header>
+        <!-- navbar -->
+      </header>
+      <main>
+        <!-- website content -->
+      </main>
+    </body>
+
+p.
+  If we want to add the ability to switch between two themes to our website,
+  we don't actually need to change anything about the structure of the website itself.
+  We just need to add a checkbox at the very top of the body:
+pre.box: code
+  :highlight(language='html')
+    <body>
+      <input id="themeswitch" type="checkbox">
+      <header>
+
+p.
+  And some CSS:
+pre.box: code
+  :highlight(language='css')
+    /* This hides the checkbox, we'll add something better to actually click on later */
+    #themeswitch {
+      display: none;
+    }
+
+    /* This will apply to both themes */
+    #themeswitch ~ * {
+      color: var(--foreground);
+      background-color: var(--background);
+    }
+
+    /* This will only apply to the initial theme, in this case the dark theme */
+    #themeswitch:not(:checked) ~ * {
+      --background: #3f3f3f;
+      --foreground: #ffffff;
+    }
+
+    /* This will only apply to the alternate theme, in this case the light theme */
+    #themeswitch:checked ~ * {
+      --background: #efefef;
+      --foreground: #5f5f5f;
+    }
+p.
+  But how does this all work? We can use #[code: :highlight(language='css') :checked] to match the checkbox only when it has been checked,
+  then use #[code: :highlight(language='css') :not(:checked)] to match the checkbox only when it has not been checked.#[br]
+p.
+  To apply styles to the content of the website instead of the checkbox, we use #[code ~].
+  This is the "subsequent-sibling combinator", which means it selects all elements after the element that was matched by what is to the left of it,
+  so in our website, that would be the #[code: :highlight(language='css') header] and #[code: :highlight(language='css') main] elements.
+
+p.
+  The only thing we need now is something to actually switch the themes.
+  Let's add a fancy switch to the header that changes between two icons based on the active theme:
+pre.box: code
+  :highlight(language='html')
+    <header>
+      <!-- navbar -->
+
+      <label for="themeswitch" class="stack">
+        <img class="dark" src="icons/sun.png">
+        <img class="light" src="icons/moon.png">
+      </label>
+    </header>
+p.
+  And the CSS:
+pre.box: code
+  :highlight(language='css')
+    .stack {
+      display: grid;
+    }
+    .stack > * {
+      /* This forces all elements that are in the stack on top of each other */
+      grid-area: 1 / 1 / 2 / 2;
+      /* This prevents the stack from getting too big */
+      min-width: 0;
+      min-height: 0;
+    }
+
+    /* This hides .light elements when in dark mode, and .dark elements when in light mode */
+    #themeswitch:not(:checked) ~ * .light,
+    #themeswitch:checked ~ * .dark {
+      display: none;
+    }
+p.
+  #[code: :highlight(language='css') label] elements are used to add text to #[code: :highlight(language='css') input] elements.
+  You can specify which #[code: :highlight(language='css') input] they belong to using the #[code for] attribute.#[br]
+  Clicking a #[code: :highlight(language='css') label] activates the #[code: :highlight(language='css') input] it belongs to,
+  no matter where on the page either of them are.
+
+p.
+  And that's the theme switch all done! This technique can also be used for many other effects,
+  maybe your website shows playing cards that you can flip over, or you want a toggleable sidebar, the possibilities are endless.
+
+h3(id=id('modal')) Modal
+
+p.
+  Since 2022, the #[code: :highlight(language='css') dialog] element has been available in all major browsers.
+  This element allows developers to create modals without having to implement them theirselves.
+  It has one major flaw though: While you can close them with just a form, you still need Javascript to open them.
+
+p.
+  To get around this, we're going to implement the modal ourselves anyway, so we can use our checkbox trick again:
+pre.box: code
+  :highlight(language='html')
+    <input class="modal-switch" id="modal-img" type="checkbox">
+    <div class="modal">
+      <img src='images/big.png'>
+    </div>
+pre.box: code
+  :highlight(language='css')
+    .modal-switch {
+      display: none;
+    }
+
+    .modal-switch:not(:checked) + * {
+      display: none;
+    }
+
+    .modal {
+      /* This makes the modal stretch the entire screen */
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      /* This centers the modal's content */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: #0000007f;
+      /* This makes sure the modal is drawn over everything else */
+      z-index: 999;
+    }
+p.
+  Note that we use #[code +] here instead of #[code ~],
+  which only matches the first element after the chekcbox, instead of all of them.#[br]
+  Another thing to note is that there is no selector for when the modal should be shown.
+  This is so we can simply set #[code: :highlight(language='css') display: flex;] on the modal itself, which will only get overridden when the modal is closed.
+
+p.
+  Let's add a way to open the modal:
+pre.box: code
+  :highlight(language='html')
+    <label for="modal-img">
+      <img src="images/small.png">
+    </label>
+p.
+  We now have an image we can click to view a bigger version of it, but there's a problem: When we open the preview, we can't close it anymore,
+  because the modal is covering the label! Let's fix that:
+pre.box: code
+  :highlight(language='html')
+    <div class="modal">
+      <img src='images/big.png'>
+      <label class="backdrop" for="modal-img"></label>
+    </div>
+pre.box: code
+  :highlight(language='css')
+    .modal .backdrop {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      /* Move this line from .modal to here */
+      background-color: #0000007f;
+      /* This places the backdrop under everything else in the modal */
+      z-index: -1;
+    }
+p.
+  If you click outside of the image now, it should close the modal.
+
+
+
+h3(id=id('pages')) Pages
+
+p.
+  You may have noticed that this website consists of multiple pages you can navigate to without reloading anything.
+  I claim this website uses no Javascript anywhere, and checkboxes can only have two states, so how did I do that?
+
+p.
+  Well, it turns out radio buttons are perfect for that. Let's create a simple site with three pages:
+pre.box: code
+  :highlight(language='html')
+    <div class="stack">
+      <div class="page-container">
+        <input class="page-switch" type="radio" name="pageswitch" id="to-home" checked>
+        <div class="page" id="home">
+          <!-- homepage content -->
+        </div>
+      </div>
+
+      <div class="page-container">
+        <input class="page-switch" type="radio" name="pageswitch" id="to-about">
+        <div class="page" id="about">
+          <!-- about page content -->
+        </div>
+      </div>
+
+      <div class="page-container">
+        <input class="page-switch" type="radio" name="pageswitch" id="to-contact">
+        <div class="page" id="contact">
+          <!-- contact page content -->
+        </div>
+      </div>
+    </div>
+pre.box: code
+  :highlight(language='css')
+    .stack {
+      display: grid;
+    }
+    .stack > * {
+      grid-area: 1 / 1 / 2 / 2;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    /* This hides the radio buttons */
+    .page-switch {
+      display: none;
+    }
+
+    /* And this hides unselected pages */
+    .page-switch:not(:checked) ~ * {
+      display: none;
+    }
+p.
+  It is important to note that the #[code name] attribute of the radio buttons should be the same for the entire group,
+  and should be different for each group, in case you're adding multiple elements with tabs.#[br]
+  You should also make sure one of your radio buttons has the #[code checked] attribute, so the user doesn't see an empty screen upon loading the page.
+
+p.
+  We have our pages, now we need a way to navigate to them. Let's create a navbar with links for our pages:
+pre.box: code
+  :highlight(language='html')
+    <nav>
+      <label for="to-home">Home</label>
+      <label for="to-about">About</label>
+      <label for="to-contact">Contact</label>
+    </nav>
+    
+    <div class="stack">
+      <div class="page-container">
+      <!-- etc -->
+p.
+  These don't need any specific styling, but we could do something like this:
+pre.box: code
+  :highlight(language='css')
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav label {
+      cursor: pointer;
+    }
+
+    nav label:hover {
+      text-decoration: underline;
+    }
+
+p.
+  Now we can navigate to our different pages instantly, without having to load anything. There is just one thing missing: how do we know on what page we are?
+  That's where it gets more complicated.
+
+p.
+  The only good option we have for this is #[code: :highlight(language='css') :has()], which checks if an element can be found, but doesn't actually match it.
+  The problem with #[code: :highlight(language='css') :has()], is that it's quite a new feature, and older browsers won't support it.
+  This is also why I used #[code ~] instead of something like #[code: :highlight(language='css') :has(:target)],
+  despite the latter being able to start on a certain page based on the url.#[br]
+  For those who do have support for it, we can change our css like this:
+pre.box: code
+  :highlight(language='css')
+    /* old */
+    nav label:hover {
+      text-decoration: underline;
+    }
+
+    /* new */
+    body:has(#to-home:checked   ) nav label[for='to-home'   ],
+    body:has(#to-about:checked  ) nav label[for='to-about'  ],
+    body:has(#to-contact:checked) nav label[for='to-contact'],
+    nav label:hover {
+      text-decoration: underline;
+    }
+p.
+  Now our users shouldn't get lost.
+
+
+h3(id=id('caveats')) Caveats
+
+p.
+  Not having to rely on Javascript without losing any features might sound like it's too good to be true, because it is.
+
+h4 Size
+p.
+  Bundling every single page into a single document means that the browser has to download your entire website before showing a single page.
+  If you don't have that many pages that's fine, but if your website contains a blog like this, it adds up rather quickly.#[br]
+  That said, many single page websites using Javascript seem to also consist of one big bundle instead of cleverly loaded chunks, taking up even more space.
+
+h4 Accessibility
+p.
+  The techniques in this post obviously use elements in unintended ways, which can cause problems with the accessibility of your website.
+  Making an accessible website should be possible, but I haven't looked into it myself, so that will be a future update to the website,
+  and potentially another blogpost.

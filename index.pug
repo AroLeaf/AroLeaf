@@ -14,8 +14,10 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    link(rel='stylesheet', href='style.css')
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='style.css')
+    style: include:prefixCSS(prefix='#themeswitch:not(:checked) ~ *') node_modules/highlight.js/styles/atom-one-dark.min.css
+    style: include:prefixCSS(prefix='#themeswitch:checked ~ *') node_modules/highlight.js/styles/atom-one-light.min.css
     title Leaf
 
   body
@@ -24,15 +26,15 @@ html(lang='en')
     header
       svg(viewbox='0 96 512 320' height='1em' fill='currentColor'): use(href='assets/hex_leaf.svg#leaf')
       
-      #navbar
+      nav#navbar
         label(for='page-home') Home
         label(for='page-projects') Projects
-        //- label(for='page-blog') Blog
+        label(for='page-blog') Blog
       
       label(for='themeswitch').stack
         +feather('sun').dark
         +feather('moon').light
-    
+
     main.stack
       .page-container
         input#page-home(type='radio' name='pageswitch' checked)
@@ -44,7 +46,12 @@ html(lang='en')
         .page.projects
           include pages/projects.pug
 
-      //- .page-container
-      //-   input#page-blog(type='radio' name='pageswitch')
-      //-   .page.blog
-      //-     include pages/blog.pug
+      .page-container
+        input#page-blog(type='radio' name='pageswitch')
+        .page.blog
+          include pages/blog.pug
+
+      each post in blogposts
+        .page-container
+          input(type='radio' name='pageswitch' id=`page-blog-${post.id}`)
+          .page.blogpost!= include(`pages/blogposts/${post.id}.pug`, { filters, post, id(id) { return `blogpost-${post.id}-${id}` } })
