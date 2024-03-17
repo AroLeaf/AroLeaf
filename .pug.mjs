@@ -28,7 +28,7 @@ export const blogposts = [
   {
     id: 'you-probably-dont-need-javascript',
     title: 'You probably don\'t need Javascript.',
-    description: 'Or maybe you do, idk tbh',
+    description: 'Well, not for your static sites at least.',
     timestamp: new Date().toISOString(),
   },
 ].sort((a, b) => a.timestamp > b.timestamp ? -1 : a.timestamp < b.timestamp ? 1 : 0);
