@@ -1,13 +1,9 @@
-mixin feather(icon)
-  svg(
-    width='1em'
-    height='1em'
-    fill='none'
-    stroke='currentColor'
-    stroke-width='2'
-    stroke-linecap='round'
-    stroke-linejoin='round'
-  )&attributes(attributes).feather: use(href='assets/feather-sprite.svg#' + icon)
+include common.pug
+
+mixin page(name, active=false)
+  .page-container
+    input(id=`page-${name}` type='radio' name='pageswitch' checked=active)
+    .page(class=name)!= include(`pages/${name}.pug`, locals)
 
 
 doctype html
@@ -36,20 +32,8 @@ html(lang='en')
         +feather('moon').light
 
     main.stack
-      .page-container
-        input#page-home(type='radio' name='pageswitch' checked)
-        .page.home
-          include pages/home.pug
-      
-      .page-container
-        input#page-projects(type='radio' name='pageswitch')
-        .page.projects
-          include pages/projects.pug
-
-      .page-container
-        input#page-blog(type='radio' name='pageswitch')
-        .page.blog
-          include pages/blog.pug
+      each pageName, i in ['home', 'projects', 'blog']
+        +page(pageName, !i)
 
       each post in blogposts
         .page-container
