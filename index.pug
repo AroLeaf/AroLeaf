@@ -1,41 +1,50 @@
 include common.pug
 
-mixin page(name, active=false)
-  .page-container
-    input(id=`page-${name}` type='radio' name='pageswitch' checked=active)
-    .page(class=name)!= include(`pages/${name}.pug`, locals)
-
-
 doctype html
+
 html(lang='en')
   head
-    meta(charset='utf-8')
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='style.css')
-    style: include:prefixCSS(prefix='#themeswitch:not(:checked) ~ *') node_modules/highlight.js/styles/atom-one-dark.min.css
-    style: include:prefixCSS(prefix='#themeswitch:checked ~ *') node_modules/highlight.js/styles/atom-one-light.min.css
     title Leaf
 
-  body
-    input#themeswitch(type='checkbox')
+  body 
+    main.vertical
+      #title.box
+        h1.paws Leaf
+        h4 Yet another trans girl developer
+
+      #about.horizontal
+        #info.box.vertical
+          h4 #[+feather('calendar').inline] 21 y/o
+          h4 #[+feather('tag').inline] #[a(href='https://en.pronouns.page/@leaf.moe' target='_blank') she/her]
+          h4.
+            #[+feather('flag').inline]
+            #[img(src='assets/trans.svg' alt='transgender flag').inline]
+            #[img(src='assets/aroace.svg' alt='aro-ace flag').inline]
+          h4#socials
+            +feather('at-sign').inline
+            | &nbsp;
+            a(href='https://github.com/aroleaf' target='_blank' title='GitHub')
+              +feather('github').inline
+            a(href='https://discord.gg/UtE44fCG8m' target='_blank' title='Discord')
+              svg(height='1em' width='1em' stroke='currentColor').feather.inline
+                use(href='assets/discord.svg#logo')
+            a(href='https://bsky.app/profile/leaf.moe' target='_blank' title='BlueSky')
+              svg(height='1em' width='1em' stroke='currentColor').feather.inline
+                use(href='assets/bluesky.svg#logo')
+      
+        #intro.box.vertical
+          p.
+            #[span.bold Heya, I'm Leaf!] I am a software developer, and I love going out into nature and making music.
+            #[br] #[br]
+            Most of my projects are related to web development, but I do all kinds of things, like creating my own programming language.
+
+      //- #projects.vertical
+      //-   h2 Projects
     
-    header
-      svg(viewbox='0 96 512 320' height='1em' fill='currentColor'): use(href='assets/hex_leaf.svg#leaf')
-      
-      nav#navbar
-        label(for='page-home') Home
-        label(for='page-projects') Projects
-        label(for='page-blog') Blog
-      
-      label(for='themeswitch').stack
-        +feather('sun').dark
-        +feather('moon').light
-
-    main.stack
-      each pageName, i in ['home', 'projects', 'blog']
-        +page(pageName, !i)
-
-      each post in blogposts
-        .page-container
-          input(type='radio' name='pageswitch' id=`page-blog-${post.id}`)
-          .page.blogpost!= include(`pages/blogposts/${post.id}.pug`, { filters, post, id(id) { return `blogpost-${post.id}-${id}` } })
+    footer
+      p#credits.
+        title font: #[a(href='https://www.dafont.com/cat-paw.font' target='_blank') Cat Paw] |
+        icon pack: #[a(href='https://feathericons.com/' target='_blank') Feather]
