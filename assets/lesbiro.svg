@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="24">
+  <style>
+    rect { clip-path: inset(0px round 4px); }
+  </style>
+
+  <defs>
+    <linearGradient id="flag" gradientTransform="rotate(90)">
+      <stop offset="20%" stop-color="#D52D00"/>
+      <stop offset="20%" stop-color="#FF9A55"/>
+      <stop offset="40%" stop-color="#FF9A55"/>
+      <stop offset="40%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#D162A4"/>
+      <stop offset="80%" stop-color="#D162A4"/>
+      <stop offset="80%" stop-color="#A30262"/>
+    </linearGradient>
+    <mask id="heart">
+      <rect width="36" height="24" fill="#7f7f7f"/>
+      <circle cx="12" cy="7" r="7" fill="#000000"/>
+      <circle cx="24" cy="7" r="7" fill="#000000"/>
+      <path d="M 18 24 L 6 12 L 30 12 L 18 24" fill="#000000"/>
+    </mask>
+  </defs>
+
+  <rect width="36" height="24" fill="url(#flag)"/>
+  <rect width="36" height="24" fill="white" mask="url(#heart)"/>
+</svg>

@@ -1,12 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="24">
   <style>
-    #top { clip-path: inset(0px 0px 4px 0px); }
-    #bottom{ clip-path: inset(4px 0px 0px 0px); }
+    rect { clip-path: inset(0px round 4px); }
   </style>
-  
-  <rect id="top" width="36" height="8.8" rx="4" fill="#5BCEFA"/>
-  <rect y="4.8" width="36" height="4.8" fill="#F5A9B8"/>
-  <rect y="9.6" width="36" height="4.8" fill="#FFFFFF"/>
-  <rect y="14.4" width="36" height="4.8" fill="#F5A9B8"/>
-  <rect id="bottom" y="15.2" width="36" height="8.8" rx="4" fill="#5BCEFA"/>
+
+  <defs>
+    <linearGradient id="flag" gradientTransform="rotate(90)">
+      <stop offset="20%" stop-color="#5BCEFA"/>
+      <stop offset="20%" stop-color="#F5A9B8"/>
+      <stop offset="40%" stop-color="#F5A9B8"/>
+      <stop offset="40%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F5A9B8"/>
+      <stop offset="80%" stop-color="#F5A9B8"/>
+      <stop offset="80%" stop-color="#5BCEFA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="36" height="24" fill="url(#flag)"/>
 </svg>
